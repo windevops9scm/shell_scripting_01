@@ -14,13 +14,12 @@ Status_check $?
 print "Remove old HTDOCS"
 cd /usr/share/nginx/html && rm -rf * &>>LOG
 Status_check $?
-PRINT"Extract frontend archive"
+PRINT "Extract frontend archive"
 unzip /tmp/frontend.zip &>>LOG && mv frontend-main/* .&>>LOG && mv static/* . &>>LOG&& rm -rf frontend-master static &>>LOG
 Status_check $?
-print"update robosho config"
+print "update robosho config"
 mv localhost.conf /etc/nginx/default.d/roboshop.conf &>>LOG
 Status_check $?
-
 
 print "enabling nginx  "
 systemctl enable nginx &>>LOG

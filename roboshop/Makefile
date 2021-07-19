@@ -2,7 +2,7 @@ help:           ## Show this help.
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
 
 frontend:  ##  install frontend component
-	@bash.sh
+	@frontend.sh
 catalouge: ##  install catalouge component
 	@catalouge.sh
 cart: 	   ##  install cart component

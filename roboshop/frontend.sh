@@ -5,9 +5,9 @@ echo -e "installing nginx\t\t..."
 yum install nginx -y &>>LOG
 if [ $? -eq 0 ]
 then
-echo -e \e[32mdone\e[0m"
+echo -e "\e[32mdone\e[0m"
 else
-echo -e \e[31mfail\e[0m"
+echo -e "\e[31mfail\e[0m"
 fi
 
 echo -e "enabling nginx"

@@ -6,6 +6,8 @@ then
 echo -e "\e[33myou should be a root/sudo user to run this script\e[0m"
 exit 2
 fi
+LOG=/temp/roboshop.log
+rm -f $LOG
 
 STATUS_CHECK()
 {

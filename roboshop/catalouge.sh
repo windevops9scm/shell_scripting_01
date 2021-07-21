@@ -19,10 +19,10 @@ PRINT "extract downloaded code"
 STATUS_CHECK $?
 PRINT "install nodejs dependencies"
 cd /home/roboshop && unzip -o /tmp/catalogue.zip &>>$LOG && rm -rf catalogue && mv catalogue-main catalogue && cd /home/roboshop/catalogue && npm install --unsafe-perm &>>$LOG
-STATUS_CHECK $
+STATUS_CHECK $?
 
 PRINT "Fix Application Permissions"
-chown roboshop:roboshop /home/roboshop -R
+chown roboshop:roboshop /home/roboshop -R &>>$LOG
 STAT_CHECK $?
 
 # mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service

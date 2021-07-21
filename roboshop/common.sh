@@ -11,7 +11,7 @@ rm -f $LOG
 
 STATUS_CHECK()
 {
-  if [ $? -eq 0 ]
+if [ $? -eq 0 ]
 then
 echo -e "\e[32mdone\e[0m"
 else
@@ -22,6 +22,7 @@ fi
 }
 PRINT()
 {
+  echo -e "\n###########################\t$1\t###########################" &>>$LOG
   echo -n -e "$1\t\t..."
 }
 

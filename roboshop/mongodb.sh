@@ -10,7 +10,7 @@ gpgkey=https://www.mongodb.org/static/pgp/server-4.2.asc' >/etc/yum.repos.d/mong
 STATUS_CHECK $?
 
 PRINT "install mongodb \t"
-yum install -y mongodb-org &>>LOG
+yum install -y mongodb-org &>>$LOG
 STATUS_CHECK $?
 
 PRINT "Update MongoDB Listen Address"
@@ -18,13 +18,13 @@ sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf
 STATUS_CHECK $?
 
 PRINT " start mongodb service\t"
-systemctl enable mongod &>>LOG && systemctl start mongod &>>LOG
+systemctl enable mongod &>>$LOG && systemctl start mongod &>>$LOG
 STATUS_CHECK $?
 
 PRINT "download mongodb schema"
-curl -s -L -o /tmp/mongodb.zip "https://github.com/roboshop-devops-project/mongodb/archive/main.zip" &>>LOG
+curl -s -L -o /tmp/mongodb.zip "https://github.com/roboshop-devops-project/mongodb/archive/main.zip" &>>$LOG
 STATUS_CHECK $?
 
 PRINT " load mongodb schema\t"
-cd /tmp && unzip -o mongodb.zip &>>LOG && cd mongodb-main && mongo < catalogue.js &>>LOG && mongo < users.js &>>LOG
+cd /tmp && unzip -o mongodb.zip &>>$LOG && cd mongodb-main && mongo < catalogue.js &>>$LOG && mongo < users.js &>>$LOG
 STATUS_CHECK $?

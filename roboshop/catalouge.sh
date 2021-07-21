@@ -23,7 +23,7 @@ STATUS_CHECK $?
 
 PRINT "Fix Application Permissions"
 chown roboshop:roboshop /home/roboshop -R &>>$LOG
-STAT_CHECK $?
+STATUS_CHECK $?
 
 # mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
 # systemctl daemon-reload

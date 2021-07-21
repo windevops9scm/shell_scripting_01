@@ -12,11 +12,11 @@ useradd roboshop &>>$LOG
 fi
 STATUS_CHECK $?
 
-PRINT "Download catalogue code"
+PRINT "Download catalogue code \t"
 curl -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/catalogue/archive/main.zip"
 STATUS_CHECK $?
 PRINT "extract downloaded code"
-cd /home/roboshop && unzip -o /tmp/catalogue.zip &>>LOG && mv catalogue-main catalogue && cd /home/roboshop/catalogue && npm install
+cd /home/roboshop && unzip -o /tmp/catalogue.zip &>>LOG && mv catalogue-main catalogue && cd /home/roboshop/catalogue && npm install --unsafe-perm
 STATUS_CHECK $?
 # mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
 # systemctl daemon-reload

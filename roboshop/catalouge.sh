@@ -1,16 +1,3 @@
-#!/bin/bash
-source common.sh
-
-PRINT "install nodejs\t\t"
-yum install nodejs make gcc-c++ -y &>>$LOG
-STATUS_CHECK $?
-
-PRINT "add roboshop application user"
-id roboshop &>>$LOG
-if [ $? -ne 0 ]; then
-  useradd roboshop &>>$LOG
-  fi
-STATUS_CHECK $?
 
 
 

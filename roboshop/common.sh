@@ -10,7 +10,7 @@ LOG=/tmp/roboshop.log
 rm -f $LOG
 
 STATUS_CHECK() {
-  if [ $? -eq 0 ]; then
+  if [ $1 -eq 0 ]; then
     echo -e "\e[32mdone\e[0m"
   else
     echo -e "\e[31mfail\e[0m"

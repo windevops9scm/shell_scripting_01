@@ -3,11 +3,11 @@
 USER_ID=$(id -u)
 if [ $USER_ID -ne 0 ]
 then
-echo -e "\e you should be a root/sudo user to run this script"
+echo -e "\e[33myou should be a root/sudo user to run this script\e[0m"
 exit 2
 fi
 
-Status_check()
+STATUS_CHECK()
 {
   if [ $? -eq 0 ]
 then
@@ -17,7 +17,7 @@ echo -e "\e[31mfail\e[0m"
 exit 1
 fi
 }
-print()
+PRINT()
 {
   echo -n -e "$1\t\t..."
 }

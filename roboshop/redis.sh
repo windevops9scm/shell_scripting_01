@@ -5,7 +5,7 @@ yum install epel-release yum-utils http://rpms.remirepo.net/enterprise/remi-rele
 STATUS_CHECK $?
 
 PRINT "install redis\t"
-yum install redis -y --enablerepo=remi >>$LOG
+yum install redis -y --enablerepo=remi &>>$LOG
 STATUS_CHECK $?
 
 PRINT "update redis listen address"

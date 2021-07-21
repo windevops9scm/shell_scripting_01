@@ -17,9 +17,14 @@ curl -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/cat
 STATUS_CHECK $?
 PRINT "extract downloaded code"
 STATUS_CHECK $?
-PRINT "install nodejs dependencies\t"
+PRINT "install nodejs dependencies"
 cd /home/roboshop && unzip -o /tmp/catalogue.zip &>>$LOG && rm -rf catalogue && mv catalogue-main catalogue && cd /home/roboshop/catalogue && npm install --unsafe-perm &>>$LOG
-STATUS_CHECK $?
+STATUS_CHECK $
+
+PRINT "Fix Application Permissions"
+chown roboshop:roboshop /home/roboshop -R
+STAT_CHECK $?
+
 # mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
 # systemctl daemon-reload
 # systemctl restart catalogue

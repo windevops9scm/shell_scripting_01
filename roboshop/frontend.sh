@@ -1,8 +1,8 @@
 #!/bin/bash
 source common.sh
 
-LOG=/temp/roboshop.log
-rm -f $LOG
+#LOG=/temp/roboshop.log
+#rm -f $LOG
 
 PRINT "installing nginx\t"
 yum install nginx -y &>>LOG

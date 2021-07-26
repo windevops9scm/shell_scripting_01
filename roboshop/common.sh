@@ -23,7 +23,7 @@ PRINT() {
   echo -n -e "$1\t\t..."
 }
 ADD_APPLICATION_USER() {
-PRINT "add roboshop application user"
+PRINT "add roboshop application user \t"
 id roboshop &>>$LOG
  if [ $? -ne 0 ]; then
     useradd roboshop &>>$LOG

@@ -9,7 +9,7 @@ enabled=1
 gpgkey=https://www.mongodb.org/static/pgp/server-4.2.asc' >/etc/yum.repos.d/mongodb.repo
 STATUS_CHECK $?
 
-PRINT "install mongodb \t"
+PRINT "install mongodb  \t"
 yum install -y mongodb-org &>>$LOG
 STATUS_CHECK $?
 

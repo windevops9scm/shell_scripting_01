@@ -3,7 +3,7 @@ help:           ## Show this help.
 
 frontend:  ##  install frontend component
 	@bash frontend.sh
-catalouge: ##  install catalouge component
+catalogue: ##  install catalogue component
 	@bash catalouge.sh
 cart: 	   ##  install cart component
 	@bash cart.sh

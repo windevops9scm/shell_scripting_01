@@ -8,7 +8,7 @@ catalogue: ##  install catalogue component
 cart: 	   ##  install cart component
 	@bash cart.sh
 user:	   ##  install user component
-	@bash user.h
+	@bash user.sh
 shipping:  ##  install shipping component
 	@bash shipping.sh
 payment:   ##  install payment component

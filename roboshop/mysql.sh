@@ -19,6 +19,6 @@ STATUS_CHECK $?
 
 PRINT "reset MySQL default password\t\t"
 DEFAULT_PASSWORD=$(grep 'A temporary password' /var/log/mysqld.log | awk '{print $NF}')
-echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql --connect-expired-password -uroot -p$(DEFAULT_PASSWORD) &>>$LOG
+echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql --connect-expired-password -uroot -p${DEFAULT_PASSWORD} &>>$LOG
 STATUS_CHECK $?
 

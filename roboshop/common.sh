@@ -75,14 +75,14 @@ STATUS_CHECK $?
 JAVA() {
   PRINT "Install Maven\t\t"
   yum install maven -y &>>$LOG
-  STAT_CHECK $?
+  STATUS_CHECK $?
 
   ADD_APPLICATION_USER
   DOWNLOAD_APP_CODE
 
   PRINT "Compile Code\t\t"
   cd /home/roboshop/${COMPONENT} && mvn clean package &>>$LOG &&  mv target/shipping-1.0.jar shipping.jar
-  STAT_CHECK $?
+  STATUS_CHECK $?
 
   PERM_FIX
   SETUP_SYSTEMD

@@ -29,10 +29,10 @@ PRINT "uninstall MySQL password policy\t\t"
 echo "uninstall plugin validate_password" | mysql -uroot -pRoboShop@1 &>>$LOG
 STATUS_CHECK $?
 
-PRINT"Download schema"
+PRINT "Download schema"
 curl -s -L -o /tmp/mysql.zip "https://github.com/roboshop-devops-project/mysql/archive/main.zip" &>>$LOG
 STATUS_CHECK $?
 
-PRINT"load schema"
+PRINT "load schema"
 cd /tmp && unzip mysql.zip &>>$LOG && cd mysql-main && mysql  -uroot -pRoboShop@1 <shipping.sql &>>$LOG
 STATUS_CHECK $?

@@ -4,7 +4,7 @@ help:           ## Show this help.
 frontend:  ##  install frontend component
 	@bash frontend.sh
 catalogue: ##  install catalogue component
-	@bash catalouge.sh
+	@bash catalogue.sh
 cart: 	   ##  install cart component
 	@bash cart.sh
 user:	   ##  install user component

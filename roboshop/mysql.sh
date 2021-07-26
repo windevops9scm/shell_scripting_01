@@ -12,3 +12,8 @@ STATUS_CHECK $?
 PRINT "Install MySQL\t\t"
 yum install mysql-community-server -y &>>$LOG
 STATUS_CHECK $?
+
+PRINT "start MySQL\t\t"
+yum  systemctl enable mysqld &>>$LOG && systemctl start mysqld &>>$LOG
+STATUS_CHECK $?
+

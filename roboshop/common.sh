@@ -36,7 +36,7 @@ DOWNLOAD_APP_CODE()
   PRINT "Download application code\t"
 curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/roboshop-devops-project/${COMPONENT}/archive/main.zip" &>>$LOG
 STATUS_CHECK $?
-PRINT "extract downloaded code"
+PRINT "extract downloaded code\t"
 cd /home/roboshop && unzip -o /tmp/${COMPONENT}.zip &>>$LOG && rm -rf ${COMPONENT} && mv ${COMPONENT}-main ${COMPONENT}
 STATUS_CHECK $?
 }
@@ -99,6 +99,12 @@ cd /home/roboshop/${COMPONENT} &>>$LOG && pip3 install -r requirements.txt &>>$L
 STATUS_CHECK $?
 
   PERM_FIX
+
+  PRINT "update service configuration "
+  userID=$(id -u roboshop)
+  groupID=$(id -g roboshop)
+  sed -i -e "/uid/ c uid=${userID}" -e "/gid/ c gid=${groupID}" payment.ini &>>$LOG
+  STATUS_CHECK $?
   #SETUP_SYSTEMD
 
 }

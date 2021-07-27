@@ -69,7 +69,6 @@ cd /home/roboshop/${COMPONENT} && npm install --unsafe-perm &>>$LOG
 STATUS_CHECK $?
 PERM_FIX
 SETUP_SYSTEMD
-
 }
 
 JAVA() {
@@ -87,3 +86,24 @@ JAVA() {
   PERM_FIX
   SETUP_SYSTEMD
 }
+PYTHON3() {
+  PRINT "Install python3 \t\t "
+  yum install python36 gcc python3-devel -y &>>$LOG
+  STATUS_CHECK $?
+
+  ADD_APPLICATION_USER
+  DOWNLOAD_APP_CODE
+
+PRINT "Install python dependencies"
+cd /home/roboshop/${COMPONENT} &>>$LOG && pip3 install -r requirements.txt &>>$LOG
+STATUS_CHECK $?
+
+  PERM_FIX
+  #SETUP_SYSTEMD
+
+}
+
+# mv /home/roboshop/payment/systemd.service /etc/systemd/system/payment.service
+# systemctl daemon-reload
+# systemctl enable payment
+# systemctl start payment   payment.ini

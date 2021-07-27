@@ -33,10 +33,10 @@ ADD_APPLICATION_USER() {
 }
 
 DOWNLOAD_APP_CODE() {
-  PRINT "Download application code\t"
+  PRINT "Download application code "
   curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/roboshop-devops-project/${COMPONENT}/archive/main.zip" &>>$LOG
   STATUS_CHECK $?
-  PRINT "extract downloaded code\t"
+  PRINT "extract downloaded code "
   cd /home/roboshop && unzip -o /tmp/${COMPONENT}.zip &>>$LOG && rm -rf ${COMPONENT} && mv ${COMPONENT}-main ${COMPONENT}
   STATUS_CHECK $?
 }
@@ -88,7 +88,7 @@ JAVA() {
   SETUP_SYSTEMD
 }
 PYTHON3() {
-  PRINT "Install python3 \t\t "
+  PRINT "Install python3 \t "
   yum install python36 gcc python3-devel -y &>>$LOG
   STATUS_CHECK $?
 

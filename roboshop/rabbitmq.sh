@@ -7,13 +7,22 @@ if [ $? -ne 0 ]; then
   yum install https://github.com/rabbitmq/erlang-rpm/releases/download/v23.2.6/erlang-23.2.6-1.el7.x86_64.rpm -y &>>$LOG
 fi
 STATUS_CHECK $?
-#curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | sudo bash
-# yum install rabbitmq-server -y
 
-# systemctl enable rabbitmq-server
-# systemctl start rabbitmq-server
+PRINT "Setup Rabbitmq repos\t"
+curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | sudo bash &>>$LOG
+STATUS_CHECK $?
 
-# rabbitmqctl add_user roboshop roboshop123
+PRINT "Install Rabbitmq server\t"
+yum install rabbitmq-server -y &>>$LOG
+STATUS_CHECK $?
+
+PRINT "Start Rabbitmq service \t"
+systemctl enable rabbitmq-server &>>$LOG && systemctl start rabbitmq-server &>>$LOG
+STATUS_CHECK $?
+
+PRINT "Create app user in Rabbitmq\t"
+rabbitmqctl add_user roboshop roboshop123
+STATUS_CHECK $?
 # rabbitmqctl set_user_tags roboshop administrator
 # rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"
 

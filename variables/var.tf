@@ -45,5 +45,5 @@ output "second_training" {
 
 variable "Fruits" {}
 output "Fruits" {
-  value = "var.Fruits"
+  value = var.Fruits
 }

@@ -52,3 +52,9 @@ variable "Country" {}
 output "Country" {
   value = var.Country
 }
+
+variable "Season" {}
+
+output "Season" {
+  value = var.Season
+}

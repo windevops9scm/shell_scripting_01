@@ -33,3 +33,12 @@ output "number" {
 output "boolean" {
   value = var.boolean
 }
+variable "trainings" {
+  default = ["Devops", "AWS"]
+}
+output "training" {
+  value = var.trainings
+}
+output "second_training" {
+  value =var.trainings[1]
+}

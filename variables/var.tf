@@ -33,6 +33,3 @@ output "number" {
 output "boolean" {
   value = var.boolean
 }
-output "data_types" {
-  value = String = ${var.string}
-}

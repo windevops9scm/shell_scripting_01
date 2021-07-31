@@ -9,7 +9,7 @@ tags = {
 }
 
 resource "aws_security_group" "allow_ssh" {
-  name        = "allow_sss"
+  name        = "allow_ssh"
   description = "ssh"
 
 

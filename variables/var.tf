@@ -42,3 +42,8 @@ output "training" {
 output "second_training" {
   value =var.trainings[1]
 }
+
+variable "Fruits" {}
+output "Fruits" {
+  value = "var.Fruits"
+}

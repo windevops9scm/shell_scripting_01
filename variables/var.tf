@@ -47,3 +47,8 @@ variable "Fruits" {}
 output "Fruits" {
   value = var.Fruits
 }
+
+variable "Country" {}
+output "Country" {
+  value = var.Country
+}

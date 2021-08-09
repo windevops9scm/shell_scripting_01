@@ -1,3 +1,6 @@
+provider "aws" {
+  region             = "us-east-1"
+}
 resource "aws_instance" "sample" {
   ami            ="ami-074df373d6bafa625"
   instance_type  = "t2.micro"
@@ -37,7 +40,4 @@ resource "aws_security_group" "allow_ssh" {
 }
 output "sg_attributes" {
   value              = aws_security_group.allow_ssh
-}
-provider "aws" {
-  region             = "us-east-1"
 }

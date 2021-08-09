@@ -1,6 +1,6 @@
 resource "aws_security_group" "allow_ssh" {
   name        = "allow_ssh"
-  description = "ssh"
+  description = "alow_ssh"
 
 
   ingress {
@@ -20,13 +20,13 @@ resource "aws_security_group" "allow_ssh" {
 
   }
 
-  tags = {
-    Name = "allow_ssh"
+  tags               = {
+    Name             = "allow_ssh"
   }
 }
 output "sg_attributes" {
-  value = aws_security_group.allow_ssh
+  value              = aws_security_group.allow_ssh
 }
 provider "aws" {
-  region = "us-east-1"
+  region             = "us-east-1"
 }

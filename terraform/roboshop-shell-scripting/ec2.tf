@@ -29,8 +29,7 @@ resource "aws_route53_record" "records" {
   type = "A"
   zone_id = "Z020431433IWCUP7LS47Q"
   ttl = 300
-  records = [
-    element(aws_spot_instance_request.cheap_worker.*.private_ip, count.index )]
+  records = [element(aws_spot_instance_request.cheap_worker.*.private_ip, count.index )]
 }
 resource "null_resource" "run-shell-scripting" {
   depends_on            = [aws_route53_record.records]
@@ -45,6 +44,7 @@ resource "null_resource" "run-shell-scripting" {
     "cd /home/centos",
       "git clone https://github.com/windevops9scm/shell_scripting_01.git",
       "cd shell_scripting_01/roboshop/",
+      "git pull",
       "sudo make ${element(var.COMPONENTS,count.index )}"
     ]
   }

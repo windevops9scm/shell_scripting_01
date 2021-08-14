@@ -1,4 +1,4 @@
-resource "aws_instance" "sample" {
+resource "aws_instance" "example" {
   count                 = 2
   ami                   = "ami-074df373d6bafa625"
   instance_type         = var.TYPE
@@ -14,5 +14,5 @@ variable "TYPE" {}
 
 
 output "PRIVATE_IP" {
-  value = aws_instance.sample.*.private_ip
+  value = aws_instance.example.*.private_ip
 }

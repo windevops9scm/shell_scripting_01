@@ -1,4 +1,4 @@
-resource "aws_security_group" "allow_ssh_key" {
+resource "aws_security_group" "allow_ssh" {
   name        = "allow_ssh"
   description = "alow_ssh"
 
@@ -26,5 +26,5 @@ resource "aws_security_group" "allow_ssh_key" {
 }
 
 output "SG_ID" {
-  value = aws_security_group.allow_ssh_key.id
+  value = aws_security_group.allow_ssh.id
 }

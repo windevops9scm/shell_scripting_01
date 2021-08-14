@@ -8,6 +8,7 @@ resource "aws_spot_instance_request" "cheap_worker" {
   ami                  = "ami-074df373d6bafa625"
   spot_price           = "0.0031"
   instance_type        = "t3.micro"
+  vpc_security_group_ids = ["sg-02206e75f89f8a0e4"]
   wait_for_fulfillment = true
 
   tags                 = {
@@ -30,7 +31,7 @@ resource "null_resource" "run-shell-scripting" {
       user              = "centos"
       password          = "DevOps321"
     }
-    command = [
+    inline = [
     "cd /home/centos",
       "git clone https://github.com/windevops9scm/shell_scripting_01.git",
       "cd shell_scripting_01/roboshop/",

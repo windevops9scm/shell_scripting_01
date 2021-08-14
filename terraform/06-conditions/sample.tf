@@ -15,4 +15,5 @@ provider "aws" {
 
 
 variable "TYPE" {
-  default       = null
+  default = null
+}

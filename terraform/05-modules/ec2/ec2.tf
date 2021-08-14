@@ -4,12 +4,12 @@ resource "aws_instance" "sample" {
   vpc_security_group_ids = [var.SG_ID]
 
   tags                   = {
-    Name                 = "sample"
+    Name                 = "example"
   }
 }
 
 variable "SG_ID" {}
 
 output "PRIVATE_IP" {
-  value                  = aws_instance.sample.private_ip
+  value                 = aws_instance.sample.private_ip
 }

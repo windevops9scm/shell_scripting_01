@@ -4,7 +4,7 @@ data "aws_ami" "example" {
   owners            = ["973714476881"]
 }
   output "amis" {
-    value           = data.aws_ami.example.id
+    value           = data.aws_ami.example
   }
 
 provider "aws" {

@@ -1,6 +1,6 @@
 resource "aws_security_group" "allow_ssh" {
-  name        = "allow-ssh-$(var.ENV)"
-  description = "allow-ssh-$(var.ENV)"
+  name        = "allow-ssh-${var.ENV}"
+  description = "allow-ssh-${var.ENV}"
 
 
   ingress {
@@ -21,7 +21,7 @@ resource "aws_security_group" "allow_ssh" {
   }
 
   tags               = {
-    Name             = "allow-ssh-$(var.ENV)"
+    Name             = "allow-ssh-${var.ENV}"
   }
 }
 

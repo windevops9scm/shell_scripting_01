@@ -3,9 +3,22 @@ data "aws_ami" "example" {
   name_regex       = "^Centos*"
   owners            = ["973714476881"]
 }
-  output "amis" {
-    value           = data.aws_ami.example
+
+data "aws_ec2_spot_price" "example" {
+  instance_type     = "t3.micro"
+  availability_zone = "us-east-1"
+
+  filter {
+    name   = "product-description"
+    values = ["Linux/UNIX"]
   }
+}
+  output "amis" {
+    value           = data.aws_ami.example.id
+  }
+output "spot" {
+  value = data.aws_ec2_spot_price.example
+}
 
 provider "aws" {
   region = "us-east-1"

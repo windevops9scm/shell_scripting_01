@@ -3,14 +3,17 @@ pipeline {
 
     stages{
 
-        stage('one') {
+        stage('terraform init') {
             steps {
-                sh 'echo Hello'
+                sh 'cd roboshop ; terraform init'
                 }
               }
-        stage('two') {
+        stage('terraform destroy') {
             steps {
-                sh 'echo world'
+                sh '''
+                  cd roboshop
+                  terraform destroy -auto-approve
+                '''
                 }
           }
 

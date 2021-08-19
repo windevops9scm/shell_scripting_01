@@ -30,12 +30,16 @@ pipeline {
 
     stages{
 
-        stage('one') {
+        stage('Master node') {
             steps {
-                sh 'cd jenkins ; echo Hello'
+                sh 'echo Hello'
                 }
               }
-
+        stage('Agent node') {
+            steps {
+                sh 'echo Hello'
+                }
+              }
       }
 
 }

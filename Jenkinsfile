@@ -34,7 +34,7 @@ agent none
 
         stage('Master node') {
           agent {
-            label 'Master'
+            label 'MASTER'
         }
             steps {
                 sh 'echo Hello'

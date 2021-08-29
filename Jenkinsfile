@@ -100,9 +100,22 @@ pipeline {
      }
    }
    stage('Three') {
-     steps {
-       echo 'Three'
-     }
+     parallel {
+       stage('P1') {
+         steps {
+           sh 'sleep 30'
+         }
+        }
+        stage('P2') {
+                 steps {
+                   sh 'sleep 30'
+                 }
+                }
+         stage('P3') {
+                  steps {
+                    sh 'sleep 30'
+                  }
+                 }
    }
   }
 }

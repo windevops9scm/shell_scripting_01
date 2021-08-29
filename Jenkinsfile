@@ -57,8 +57,8 @@
 //       }
 //     }
 // }
-
-pipeline {
+#working
+/* pipeline {
   agent any
   options { disableConcurrentBuilds() }
   tools {
@@ -119,4 +119,49 @@ pipeline {
          }
    }
   }
+} */
+
+#working
+pipeline {
+    agent {
+      node { label 'workstation'}
+    }
+ parameters {
+
+          choice(name: 'ACTION', choices: ['apply', 'destroy'], description: 'Pick terraform action')
+
+  }
+    stages{
+
+        stage('terraform init') {
+            steps {
+                sh 'cd terraform/roboshop-shell-scripting ; terraform init'
+                }
+              }
+        stage('terraform apply') {
+          when {
+            environment name: 'ACTION' , value: 'apply'
+          }
+            steps {
+                sh '''
+                  cd terraform/roboshop-shell-scripting
+                  terraform apply -auto-approve
+                '''
+                }
+          }
+            stage('terraform destroy') {
+              when {
+                environment name: 'ACTION' , value: 'destroy'
+                  }
+                      steps {
+                          sh '''
+                            cd terraform/roboshop-shell-scripting
+                            terraform destroy -auto-approve
+                          '''
+                          }
+                    }
+
+      }
+
 }
+

@@ -61,6 +61,9 @@
 pipeline {
   agent any
   options { disableConcurrentBuilds() }
+  tools {
+    maven 'maven'
+  }
 
   environment {
     DEMO_URL = "google.com"

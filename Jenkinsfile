@@ -125,6 +125,9 @@ pipeline {
     agent {
       node { label 'workstation'}
     }
+     options {
+            ansiColor('xterm')
+        }
  parameters {
 
           choice(name: 'ACTION', choices: ['apply', 'destroy'], description: 'Pick terraform action')

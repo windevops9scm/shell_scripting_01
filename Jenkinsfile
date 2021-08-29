@@ -28,7 +28,7 @@ pipeline {
 //         //label 'JAVA'
 //         none
 //         }
-agent none
+agent any
 
     stages{
 
@@ -51,8 +51,6 @@ agent none
 
            }
  post {
-
-   agent any
 
   always {
     sh 'echo post steps'

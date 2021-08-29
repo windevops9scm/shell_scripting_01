@@ -57,7 +57,7 @@
 //       }
 //     }
 // }
-#working
+
 /* pipeline {
   agent any
   options { disableConcurrentBuilds() }
@@ -121,7 +121,6 @@
   }
 } */
 
-#working
 pipeline {
     agent {
       node { label 'workstation'}

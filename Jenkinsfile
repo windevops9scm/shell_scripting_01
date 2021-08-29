@@ -52,6 +52,8 @@ agent none
            }
  post {
 
+   agent any
+
   always {
     sh 'echo post steps'
       }

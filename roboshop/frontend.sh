@@ -28,9 +28,9 @@ PRINT "enabling nginx \t\t"
 systemctl enable nginx &>>$LOG
 STATUS_CHECK $?
 
-PRINT "starting nginx/t/t/t "
-systemctl restart nginx &>>LOG
-STATUS_CHECK $?
+#PRINT "starting nginx/t/t/t "
+#systemctl restart nginx &>>LOG
+#STATUS_CHECK $?
 
 
 

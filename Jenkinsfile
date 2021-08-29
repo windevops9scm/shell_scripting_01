@@ -48,6 +48,13 @@ agent none
                 sh 'echo World'
                 }
               }
+
+            post {
+
+              always {
+                sh 'echo post steps'
+                }
+              }
       }
 
 }

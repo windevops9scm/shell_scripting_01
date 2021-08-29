@@ -86,5 +86,10 @@ pipeline {
         echo "PERSON = ${PERSON}"
      }
    }
+   stage('compile') {
+     steps {
+       sh 'mvn clean'
+     }
+   }
   }
 }

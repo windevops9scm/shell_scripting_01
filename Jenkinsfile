@@ -63,6 +63,7 @@ pipeline {
 
   environment {
     DEMO_URL = "google.com"
+    SSH = credentials('CENTOS_SSH')
   }
 
   stages {
@@ -72,6 +73,8 @@ pipeline {
     }
       steps {
         sh 'echo ${DEMO_URL}'
+        echo "${SSH_USR}"
+        echo "${SSH_PSW}"
      }
    }
   }

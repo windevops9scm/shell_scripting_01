@@ -1,59 +1,75 @@
+// // pipeline {
+// //     agent any
+// //
+// //     stages{
+// //
+// //         stage('terraform init') {
+// //             steps {
+// //                 sh 'cd terraform/roboshop-shell-scripting ; terraform init'
+// //                 }
+// //               }
+// //         stage('terraform destroy') {
+// //             steps {
+// //                 sh '''
+// //                   cd terraform/roboshop-shell-scripting
+// //                   terraform destroy -auto-approve
+// //                 '''
+// //                 }
+// //           }
+// //
+// //       }
+// //
+// // }
+//
+//
 // pipeline {
-//     agent any
+// //     agent {
+// //         //node { label 'workstation' }
+// //         //label 'JAVA'
+// //         none
+// //         }
+// agent any
 //
 //     stages{
 //
-//         stage('terraform init') {
+//         stage('Master node') {
+//           agent {
+//             label 'MASTER'
+//         }
 //             steps {
-//                 sh 'cd terraform/roboshop-shell-scripting ; terraform init'
+//                 sh 'echo Hello'
 //                 }
 //               }
-//         stage('terraform destroy') {
-//             steps {
-//                 sh '''
-//                   cd terraform/roboshop-shell-scripting
-//                   terraform destroy -auto-approve
-//                 '''
-//                 }
+//         stage('Agent node') {
+//           agent {
+//             label 'JAVA'
 //           }
+//             steps {
+//                 sh 'echo World'
+//                 }
+//               }
 //
+//            }
+//  post {
+//
+//   always {
+//     sh 'echo post steps'
 //       }
-//
+//     }
 // }
 
-
 pipeline {
-//     agent {
-//         //node { label 'workstation' }
-//         //label 'JAVA'
-//         none
-//         }
-agent any
+  agent any
 
-    stages{
+  environment {
+    DEMO_URL = "google.com"
+  }
 
-        stage('Master node') {
-          agent {
-            label 'MASTER'
-        }
-            steps {
-                sh 'echo Hello'
-                }
-              }
-        stage('Agent node') {
-          agent {
-            label 'JAVA'
-          }
-            steps {
-                sh 'echo World'
-                }
-              }
-
-           }
- post {
-
-  always {
-    sh 'echo post steps'
-      }
-    }
+  stages {
+    stage('one') {
+      steps {
+        sh 'echo ${DEMO_URL}'
+     }
+   }
+  }
 }

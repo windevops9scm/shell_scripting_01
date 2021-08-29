@@ -49,12 +49,11 @@ agent none
                 }
               }
 
-            post {
+           }
+ post {
 
-              always {
-                sh 'echo post steps'
-                }
-              }
+  always {
+    sh 'echo post steps'
       }
-
+    }
 }

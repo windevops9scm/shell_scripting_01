@@ -90,6 +90,11 @@ pipeline {
      }
    }
    stage('compile') {
+    input {
+             message "Should we continue?"
+             ok "Yes, we should."
+           }
+
      steps {
        sh 'mvn clean'
      }
